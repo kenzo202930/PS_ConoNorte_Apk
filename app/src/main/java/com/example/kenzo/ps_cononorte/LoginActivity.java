@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button Login;
     EditText Usuario,Password;
-    String URL_LOGIN = "";
+    public String URL_LOGIN = "http://192.168.0.105/api/ValidarLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,23 +42,31 @@ public class LoginActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String usu = Usuario.getText().toString().trim();
-                String password = Password.getText().toString().trim();
-                ValidarLogin(usu,password);
+//                String usu = Usuario.getText().toString().trim();
+//                String password = Password.getText().toString().trim();
+                ValidarLogin();
+//                Toast.makeText(LoginActivity.this, usu + " " + password, Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    public void ValidarLogin(final String usu, final String pwd) {
-
+    public void ValidarLogin() {
+        final String usu = Usuario.getText().toString().trim();
+        final String pwd = Password.getText().toString().trim();
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         String id = ObtenerIDUsuarioLogeado(response);
-                        GenerarSharedPreferences(id);
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                        startActivity(intent);
+//                        Toast.makeText(LoginActivity.this, id, Toast.LENGTH_SHORT).show();
+                        if (!id.equals("")){
+                            GenerarSharedPreferences(id);
+                            Intent intent = new Intent(LoginActivity.this, OpcionesActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Ah ocurrido un error al momento de iniciar sesión", Toast.LENGTH_SHORT).show();
+                        }
+
                     }
                 },
                 new Response.ErrorListener() {
@@ -69,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> params = new HashMap<>();
-                params.put("dni", usu);
+                params.put("email", usu);
                 params.put("password", pwd);
                 return params;
             }
