@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button Login;
     EditText Usuario,Password;
-    public String URL_LOGIN = "http://192.168.0.105/api/ValidarLogin";
+    public String URL_LOGIN = "http://192.168.8.102/api/ValidarLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

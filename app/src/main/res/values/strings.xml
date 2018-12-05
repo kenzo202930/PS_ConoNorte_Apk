@@ -1,7 +1,8 @@
 <resources>
-    <string name="app_name">PS_ConoNorte</string>
+    <string name="app_name">PS Cono Norte</string>
     <string name="usuario">Usuario</string>
     <string name="especialista">Especialista</string>
     <string name="contrase_a">Contraseña</string>
     <string name="iniciar_sesi_n">Iniciar Sesión</string>
+    <string name="txtDireccion">P.S. Cono Norte-Ciudad Nueva-Tacna</string>
 </resources>

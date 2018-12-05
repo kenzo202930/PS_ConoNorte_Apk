@@ -7,9 +7,20 @@
 
     <ImageView
         android:id="@+id/imageview_inicio"
-        android:layout_width="287dp"
-        android:layout_height="225dp"
+        android:layout_width="136dp"
+        android:layout_height="127dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/logo_temporal" />
+        android:src="@drawable/logo" />
+
+
+        <TextView
+            android:id="@+id/textoDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="23dp"
+            android:text="@string/txtDireccion"
+            android:textSize="14dp" />
 
 </RelativeLayout>

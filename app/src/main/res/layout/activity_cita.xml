@@ -12,9 +12,8 @@
         android:layout_width="216dp"
         android:layout_height="36dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="114dp"
-        android:layout_marginStart="83dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="137dp" />
 
     <EditText
         android:id="@+id/editText2"
@@ -22,31 +21,28 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="98dp"
+        android:layout_marginTop="84dp"
         android:ems="10"
-        android:hint="DNI...."
+        android:hint="Dni"
         android:inputType="number" />
 
     <EditText
         android:id="@+id/editText3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/textView2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="192dp"
         android:ems="10"
-        android:hint="Nombre...."
+        android:hint="Nombre"
         android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/editText4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="192dp"
+        android:layout_centerInParent="true"
         android:ems="10"
-        android:hint="Apellidos...."
+        android:hint="Apellido"
         android:inputType="textEmailAddress" />
 
     <TextView
@@ -56,7 +52,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/editText2"
         android:layout_marginTop="67dp"
-        android:text="DNI" />
+        />
 
     <TextView
         android:id="@+id/textView2"
@@ -65,7 +61,7 @@
         android:layout_alignParentTop="true"
         android:layout_alignStart="@+id/editText2"
         android:layout_marginTop="159dp"
-        android:text="Nombres" />
+        />
 
     <TextView
         android:id="@+id/textView3"
@@ -73,24 +69,36 @@
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/editText2"
         android:layout_centerVertical="true"
-        android:text="Apellidos" />
+       />
 
     <TextView
         android:id="@+id/textView4"
+        android:layout_width="284dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText2"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="-62dp"
+        android:layout_marginEnd="45dp"
+        android:text="Bienvenido!!...Ingresa los datos requeridos y luego confirma para obtener tu cita." />
+
+    <TextView
+        android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/editText2"
-        android:layout_marginBottom="159dp"
+        android:layout_alignStart="@+id/spinner"
+        android:layout_marginBottom="178dp"
         android:text="Especialidad" />
 
     <Button
         android:id="@+id/btnCita"
-        android:layout_width="207dp"
+        android:layout_width="135dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="42dp"
-        android:text="Sacar Cita" />
+        android:layout_marginBottom="33dp"
+        android:background="@color/colorAccent"
+        android:text="Confirmar"
+        android:textColor="@android:color/background_light" />
 
 </RelativeLayout>
