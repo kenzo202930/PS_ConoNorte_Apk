@@ -28,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
 
     Button Login;
     EditText Usuario,Password;
-    public String URL_LOGIN = "http://192.168.8.102/api/ValidarLogin";
+    public String URL_LOGIN = "http://192.168.0.100/api/ValidarLogin";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,10 +42,7 @@ public class LoginActivity extends AppCompatActivity {
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                String usu = Usuario.getText().toString().trim();
-//                String password = Password.getText().toString().trim();
                 ValidarLogin();
-//                Toast.makeText(LoginActivity.this, usu + " " + password, Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -58,7 +55,6 @@ public class LoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         String id = ObtenerIDUsuarioLogeado(response);
-//                        Toast.makeText(LoginActivity.this, id, Toast.LENGTH_SHORT).show();
                         if (!id.equals("")){
                             GenerarSharedPreferences(id);
                             Intent intent = new Intent(LoginActivity.this, OpcionesActivity.class);
@@ -66,13 +62,11 @@ public class LoginActivity extends AppCompatActivity {
                         }else{
                             Toast.makeText(LoginActivity.this, "Ah ocurrido un error al momento de iniciar sesión", Toast.LENGTH_SHORT).show();
                         }
-
                     }
                 },
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-
                     }
                 }) {
             @Override
